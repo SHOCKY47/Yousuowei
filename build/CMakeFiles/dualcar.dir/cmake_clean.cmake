@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/dualcar.dir/user/src/ANO.o"
+  "CMakeFiles/dualcar.dir/user/src/ANO.o.d"
+  "CMakeFiles/dualcar.dir/user/src/Back_Wheel.o"
+  "CMakeFiles/dualcar.dir/user/src/Back_Wheel.o.d"
+  "CMakeFiles/dualcar.dir/user/src/CameraParams.o"
+  "CMakeFiles/dualcar.dir/user/src/CameraParams.o.d"
+  "CMakeFiles/dualcar.dir/user/src/Cross.o"
+  "CMakeFiles/dualcar.dir/user/src/Cross.o.d"
+  "CMakeFiles/dualcar.dir/user/src/Encoder.o"
+  "CMakeFiles/dualcar.dir/user/src/Encoder.o.d"
+  "CMakeFiles/dualcar.dir/user/src/Initall.o"
+  "CMakeFiles/dualcar.dir/user/src/Initall.o.d"
+  "CMakeFiles/dualcar.dir/user/src/PM_Control.o"
+  "CMakeFiles/dualcar.dir/user/src/PM_Control.o.d"
+  "CMakeFiles/dualcar.dir/user/src/QMath.o"
+  "CMakeFiles/dualcar.dir/user/src/QMath.o.d"
+  "CMakeFiles/dualcar.dir/user/src/Sdcard.o"
+  "CMakeFiles/dualcar.dir/user/src/Sdcard.o.d"
+  "CMakeFiles/dualcar.dir/user/src/data.o"
+  "CMakeFiles/dualcar.dir/user/src/data.o.d"
+  "CMakeFiles/dualcar.dir/user/src/imagpro.o"
+  "CMakeFiles/dualcar.dir/user/src/imagpro.o.d"
+  "CMakeFiles/dualcar.dir/user/src/imu.o"
+  "CMakeFiles/dualcar.dir/user/src/imu.o.d"
+  "CMakeFiles/dualcar.dir/user/src/isr.o"
+  "CMakeFiles/dualcar.dir/user/src/isr.o.d"
+  "CMakeFiles/dualcar.dir/user/src/key.o"
+  "CMakeFiles/dualcar.dir/user/src/key.o.d"
+  "CMakeFiles/dualcar.dir/user/src/main.o"
+  "CMakeFiles/dualcar.dir/user/src/main.o.d"
+  "bin/dualcar.axf"
+  "bin/dualcar.axf.manifest"
+  "bin/dualcar.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/dualcar.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

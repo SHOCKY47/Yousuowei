@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "zf_common_headfile.h": "c",
+        "border.h": "c",
+        "qmath.h": "c",
+        "show.h": "c",
+        "motor.h": "c",
+        "key.h": "c",
+        "init.h": "c",
+        "math.h": "c",
+        "headfile.h": "c",
+        "zf_device_wireless_uart.h": "c",
+        "imgstruct.h": "c",
+        "back_wheel.h": "c",
+        "encoder.h": "c",
+        "cameraparams.h": "c",
+        "pm_control.h": "c"
+    }
+}
