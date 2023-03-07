@@ -10,14 +10,14 @@ void Initall(void)
 
     PIT_Init();
     // timer_init(TIM_2, TIMER_MS);
-    // mt9v03x_init();
+    mt9v03x_init();
     gpio_init(LED1, GPO, GPIO_HIGH, GPO_PUSH_PULL); // 初始化 LED1 输出 默认高电平 推挽输出模式
     // sdcardinit();
-    // Duoji_Init();
     Motor_Init();
     Encoder_Init();
-    // Key_Init();
+    Key_Init();
     wireless_uart_init();
+    imu660ra_init();
 }
 
 void Motor_Init(void)
@@ -59,7 +59,7 @@ void Key_Init(void)
 
 void DATA_INIT(void)
 {
-
+Img_data_init();
     Motor_L_Init();
     Motor_R_Init();
     MOTOR_PID_Init();

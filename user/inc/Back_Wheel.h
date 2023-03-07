@@ -4,9 +4,9 @@
 #include "zf_common_headfile.h"
 #include "headfile.h"
 
-#define MOTOR1_DIR   (A0)
+#define MOTOR1_DIR   (TIM5_PWM_CH1_A0)
 #define MOTOR1_PWM   (TIM5_PWM_CH2_A1)
-#define MOTOR2_DIR   (A2)
+#define MOTOR2_DIR   (TIM5_PWM_CH3_A2)
 #define MOTOR2_PWM   (TIM5_PWM_CH4_A3)
 
 #define Distance_Col 0.200 // 车身的前后轮中心距

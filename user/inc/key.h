@@ -31,6 +31,8 @@ extern uint8 key1_status, key2_status, key3_status, key4_status;
 extern uint8 key1_last_status, key2_last_status, key3_last_status, key4_last_status;
 extern uint8 key1_flag, key2_flag, key3_flag, key4_flag;
 
+extern uint8 Img_Open_falg;
+
 void Key_Switch(void);
 
 #endif

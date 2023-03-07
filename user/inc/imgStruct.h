@@ -221,6 +221,8 @@ typedef struct track_type_info_ {
     // 0 非车库发车，不累计运行圈数
     // 1 车库发车，两圈后入库
 
+
+uint8 Outframe;//出界
     // 运行圈数计数
     uint8 m_u8Round_Count;
 

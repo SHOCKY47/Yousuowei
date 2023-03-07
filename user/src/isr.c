@@ -106,6 +106,13 @@ void TIM6_IRQHandler(void)
     turn_control_num++;
     control_num++;
     speed_control_num++;
+        // gyro_calculate();
+
+        if(g_TrackType.Outframe==1)
+        {
+            Motor_Left.setpoint=0;
+            Motor_Right.setpoint=0;
+        }
 
     // 曲率环(20ms)
     if (control_num >= 4) {
@@ -149,13 +156,11 @@ void TIM6_IRQHandler(void)
         // {
         Angular_Control_PI(&Angular_Para, &Curvature_Para, g_z_degree);
 
-        Back_Wheel_Out(Motor_Left.result - Angular_Para.result, -Motor_Left.result + Angular_Para.result);
+        Back_Wheel_Out(Motor_Left.result /*- Angular_Para.result*/, -(Motor_Right.result /*+ Angular_Para.result*/));
         // }
         // }
     }
-
-    Motor_L_Control_Change_Integral(&Motor_Left, &MOTOR, encoder_1);
-    // Motor_R_Control_Change_Integral(&Motor_Right, &MOTOR, encoder_2);
+    
 
     // 速度环计算(5ms)
     if (speed_control_num >= 1) {
@@ -164,6 +169,7 @@ void TIM6_IRQHandler(void)
         //     // 非入库执行
         //     if (charge_speed_stop == 0) {
         Motor_L_Control_Change_Integral(&Motor_Left, &MOTOR, encoder_1);
+        Motor_R_Control_Change_Integral(&Motor_Right, &MOTOR, encoder_2);
         //     }
         // }
     }
@@ -178,6 +184,7 @@ void TIM6_IRQHandler(void)
 void TIM7_IRQHandler(void)
 {
     // 此处编写用户代码
+
 
     // 此处编写用户代码
     TIM7->SR &= ~TIM7->SR; // 清空中断状态

@@ -173,6 +173,17 @@ void adaptiveThreshold_2(void)
             outimage[i / 2][j / 2] = min_value;
         }
     }
+
+    for (uint8 i = 0; i < 61; i += 1) {
+        
+        for (uint8 j = 0; j < 95; j += 1) {
+            
+            
+             mt9v03x_image[i][j]=outimage[i][j];
+            // ips200_show_int(10, 130,Findprevent++,6);
+
+        }
+    }
 }
 
 void wusuowei(uint8 (*InImg)[IMGW], TRACK_BORDER_INFO *p_Border, TRACK_TYPE_INFO *p_Type)
@@ -605,8 +616,8 @@ void Inverse_Perspective(INT_POINT_INFO PointIN[], INT_POINT_INFO PointOUT[], in
         // SEGGER_RTT_printf(0, RTT_CTRL_TEXT_GREEN "\r\n LOG -> cnt=%d.", PointNum);
         // SEGGER_RTT_printf(0, RTT_CTRL_TEXT_GREEN "\r\n LOG -> num=%d.", num);
 
-        PointOUT[int16_i].m_i16x = Inv_x[PointIN[int16_i].m_i16y * 188 + PointIN[int16_i].m_i16x];
-        PointOUT[int16_i].m_i16y = Inv_y[PointIN[int16_i].m_i16y * 188 + PointIN[int16_i].m_i16x];
+        PointOUT[int16_i].m_i16x = Inv_x2[PointIN[int16_i].m_i16y * 188 + PointIN[int16_i].m_i16x];
+        PointOUT[int16_i].m_i16y = Inv_y2[PointIN[int16_i].m_i16y * 188 + PointIN[int16_i].m_i16x];
         // SEGGER_RTT_printf(0, RTT_CTRL_TEXT_GREEN "\r\n LOG -> invx=%d.", Inv_x[ pn ]);
         // SEGGER_RTT_printf(0, RTT_CTRL_TEXT_GREEN "\r\n LOG -> invy=%d.", Inv_y[ pn ]);
         // SEGGER_RTT_printf(0, RTT_CTRL_TEXT_GREEN "\r\n LOG -> out=%d.", PointOUT[int16_i].m_i16x);
@@ -1364,9 +1375,18 @@ void Full_Inverse_Perspective(void)
     for (i = 0; i < IMGH; i++) {
 
         for (j = 0; j < IMGW; j++) {
-            inv_image[i][j] = mt9v03x_image[Inv_y[i * IMGW + j]][Inv_x[i * IMGW + j]];
+            inv_image[i][j] = mt9v03x_image[Inv_y2[i * IMGW + j]][Inv_x2[i * IMGW + j]];
         }
     }
+}
+
+void Out_Protect(uint8 (*image)[IMGW]){
+    uint8 i;
+    int16 Sum=0;
+    for(i=0;i<188;i++){
+        if(image[90][i] > 200)Sum++;//判断赛道白点
+    }
+    if(Sum<50)g_TrackType.Outframe=1;//赛道白点小于50个就出界
 }
 
 // void adaptiveThreshold_1(uint8 (*InImg)[MT9V03X_W], uint8 (*OutImg)[MT9V03X_W], int width, int height, int block, uint8_t clip_value)
